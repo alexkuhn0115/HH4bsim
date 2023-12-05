@@ -14,13 +14,14 @@ dependencies:
  - numexpr>=2.6.2        # tables
  - packaging             # tables
  - py-cpuinfo            # tables
- - python-blosc2>=2.3.0  # tables
+ #- python-blosc2>=2.3.0 # tables (appears to cause conflicts if explicitly called)
  - tables                # tables
  - pandas
  - scikit-learn
  - pytorch
  - scipy
  - pot
+ - fontconfig>=2.7       # for matplotlib; allows detection of system fonts on Linux
  - matplotlib
  - pip
  - pip:
