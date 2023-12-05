@@ -284,8 +284,7 @@ class loaderResults_SvB:
         self.splitAndScale()
 
         if doROC:
-            #self.roc = roc_data(np.array(self.y_true==sg.index, dtype=np.float), 
-            self.roc = roc_data(np.array(self.y_true==sg.index, dtype=float), # np.float deprecated as of numpy 1.20
+            self.roc = roc_data(np.array(self.y_true==sg.index, dtype=np.float), 
                                 self.y_pred[:,sg.index], 
                                 self.w,
                                 'Signal',
@@ -508,8 +507,7 @@ class loaderResults_FvT:
 #                                       'ThreeTag Data')
 #                self.roc = self.roc_t3
 #            if classifier in ['FvT','DvT4']:
-            #self.roc_43 = roc_data(np.array(self.y_true==d4.index, dtype=np.float), 
-            self.roc_43 = roc_data(np.array(self.y_true==d4.index, dtype=float), 
+            self.roc_43 = roc_data(np.array(self.y_true==d4.index, dtype=np.float), 
                                    self.y_pred[:,d4.index], 
                                    self.w,
                                    'FourTag',
@@ -1187,10 +1185,8 @@ class modelParameters:
 
     def evaluate(self, results, doROC=True, evalOnly=False):
         self.net.eval()
-#        y_pred, y_true, w_ordered = np.ndarray((results.n,self.nClasses), dtype=np.float), np.zeros(results.n, #dtype=np.float), np.zeros(results.n, dtype=np.float)
-        y_pred, y_true, w_ordered = np.ndarray((results.n,self.nClasses), dtype=float), np.zeros(results.n, dtype=float), np.zeros(results.n, dtype=float)
-#        q_score = np.ndarray((results.n, 3), dtype=np.float)
-        q_score = np.ndarray((results.n, 3), dtype=float)
+        y_pred, y_true, w_ordered = np.ndarray((results.n,self.nClasses), dtype=np.float), np.zeros(results.n, dtype=np.float), np.zeros(results.n, dtype=np.float)
+        q_score = np.ndarray((results.n, 3), dtype=np.float)
         print_step = len(results.evalLoader)//200+1
         nProcessed = 0
         loss = 0
@@ -1494,10 +1490,8 @@ class modelParameters:
         #updateResults.n = n
 
         self.net.eval()
-#        y_pred, y_true, w_ordered = np.ndarray((n,2), dtype=np.float), np.zeros(n, dtype=np.float), np.zeros(n, dtype=np.float)
-        y_pred, y_true, w_ordered = np.ndarray((n,2), dtype=float), np.zeros(n, dtype=float), np.zeros(n, dtype=float)
-#        q_score = np.ndarray((n, 3), dtype=np.float)
-        q_score = np.ndarray((n, 3), dtype=float)
+        y_pred, y_true, w_ordered = np.ndarray((n,2), dtype=np.float), np.zeros(n, dtype=np.float), np.zeros(n, dtype=np.float)
+        q_score = np.ndarray((n, 3), dtype=np.float)
         print_step = len(ldr)//200+1
         nProcessed = 0
         loss = 0
