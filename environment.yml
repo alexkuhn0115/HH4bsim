@@ -6,16 +6,16 @@ channels:
  - defaults
 
 dependencies:
- - python>=3.9          # >=3.9 for tables
+ - python>=3.9           # >=3.9 for tables
  - root
- - hdf5>=1.10.5         # tables (>= 1.14.0 'highly recommended', but causes conflicts)
- - cython               # tables
- - numpy>=1.19.0        # version for tables
- - numexpr>=2.6.2       # tables
- - packaging            # tables
- - py-cpuinfo           # tables
- - python-blosc2>=2.3.0 # tables
- - tables               # tables
+ - hdf5>=1.10.5          # tables (>= 1.14.0 causes conflicts)
+ - cython                # tables
+ - numpy>=1.19.0, <1.24  # version for tables (>=1.24 and np.float is deprecated)
+ - numexpr>=2.6.2        # tables
+ - packaging             # tables
+ - py-cpuinfo            # tables
+ - python-blosc2>=2.3.0  # tables
+ - tables                # tables
  - pandas
  - scikit-learn
  - pytorch
